@@ -7,10 +7,17 @@
         (change)="log(courseName)" 
         type="text" 
         required
-        minlength="3"
+        minlength="4"
         >
-        <div class="alert alert-danger">Course Name is Required</div>
-        <div class="alert alert-danger">Course Name Should be atleast 3 Characters</div>
+        <div class="alert alert-danger"
+            *ngIf="courseName.touched && !courseName.valid">
+            <div *ngIf="courseName.errors.required">
+                Course Name is Required.
+            </div>
+            <div *ngIf="courseName.errors.minlength">
+                Course Name Should be atleast {{ courseName.errors.minlength.requiredLength }} Characters.
+            </div>
+        </div>
     </div>
     <button class="btn btn-primary">Submit</button>
 </form>
