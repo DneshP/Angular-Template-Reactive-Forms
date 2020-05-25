@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-form.component.css']
 })
 export class CourseFormComponent implements OnInit {
+  categories=[
+  {id:1,name:'Development'},
+  {id:2,name:'Beginner'},
+  {id:3,name:'Advancements'}
+]
 
   constructor() { }
-
+submit(course){
+  console.log(course);
+}
   ngOnInit() {
   }
-log(courseName){
-  console.log(courseName);
-}
 }
