@@ -1,0 +1,16 @@
+<form>
+    <div class="form-group">
+        <label for="courseName">CourseName</label>
+        <input class="form-control"
+         ngModel name="courseName" 
+        #courseName = "ngModel" 
+        (change)="log(courseName)" 
+        type="text" 
+        required
+        minlength="3"
+        >
+        <div class="alert alert-danger">Course Name is Required</div>
+        <div class="alert alert-danger">Course Name Should be atleast 3 Characters</div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>

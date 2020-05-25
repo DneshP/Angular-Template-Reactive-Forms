@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { CourseFormComponent } from './course-form/course-form.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
