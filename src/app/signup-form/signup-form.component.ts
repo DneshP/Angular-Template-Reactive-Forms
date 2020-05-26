@@ -12,7 +12,8 @@ reactiveform = new FormGroup({
     Validators.required,
     Validators.minLength(3),
     UsernameValidators.cannotContainSpace
-  ]),
+  ],
+  UsernameValidators.shouldBeUnique),
   password: new FormControl('',Validators.required)
 });
 
