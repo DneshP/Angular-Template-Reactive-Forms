@@ -1,26 +1,31 @@
-<form [formGroup]="reactiveform">
-<div class="form-group">
-    <label for="username">Username</label>
-    <input 
-    formControlName="username"
-    type="text" 
-    class="form-control">
-    <div *ngIf="username.pending">Checking for availability...</div>
-    <div *ngIf="username.touched && username.invalid"  
-         class="alert alert-danger">
-        <div *ngIf="username.errors.required">Username is Required</div>
-        <div *ngIf="username.errors.minlength">Username should be alteast {{ username.errors.minlength.requiredLength }} characters</div>
-        <div *ngIf="username.errors.cannotContainSpace">Username Cannot have Spaces</div>
-        <div *ngIf="username.errors.shouldBeUnique">Username is taken.</div>
+<form [formGroup]="reactiveform" (ngSubmit)="login()">
+    <div *ngIf="reactiveform.errors"class="danger alert-danger">
+        Username or Password is Invalid.
     </div>
-</div>
-<div class="form-group">
-    <label for="password">Password</label>
-    <input 
-    formControlName="password"
-    type="text" 
-    class="form-control">
-    <div *ngIf="reactiveform.get('password').touched" class="alert alert-danger">Password is Required</div>
-</div>
+    <div formGroupName="account">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+            formControlName="username"
+            type="text" 
+            class="form-control">
+            <div *ngIf="username.pending">Checking for availability...</div>
+            <div *ngIf="username.touched && username.invalid"  
+                 class="alert alert-danger">
+                <div *ngIf="username.errors.required">Username is Required</div>
+                <div *ngIf="username.errors.minlength">Username should be alteast {{ username.errors.minlength.requiredLength }} characters</div>
+                <div *ngIf="username.errors.cannotContainSpace">Username Cannot have Spaces</div>
+                <div *ngIf="username.errors.shouldBeUnique">Username is taken.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+            formControlName="password"
+            type="password" 
+            class="form-control">
+        </div>
+    </div>
+
 <button class="btn btn-primary">Sign Up</button>
 </form>
