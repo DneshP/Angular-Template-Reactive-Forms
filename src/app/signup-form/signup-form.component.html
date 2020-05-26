@@ -5,6 +5,7 @@
     formControlName="username"
     type="text" 
     class="form-control">
+    <div *ngIf="username.pending">Checking for availability...</div>
     <div *ngIf="username.touched && username.invalid"  
          class="alert alert-danger">
         <div *ngIf="username.errors.required">Username is Required</div>
