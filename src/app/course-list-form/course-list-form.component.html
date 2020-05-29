@@ -1,15 +1,27 @@
-<form>  
+<form [formGroup]="form" (ngSubmit)=submit(form.value)>  
     <label>Name</label>
-    <input type="text" 
+    <input 
+    type="text" 
     class="form-control" 
-    #name>
-    <div class="form-group" #contact>
+    formControlName="name">
+    <div class="danger alert-danger"
+    *ngIf="name.touched && name.invalid"
+    >
+    <div *ngIf="name.errors.required" >Name is Required.</div>
+    </div>
+    <div 
+    class="form-group" 
+    formGroupName="contact">
         <label>Email</label>  
-        <input type="text" 
+        <input 
+        type="text" 
         class="form-control" 
-        #email>
+        formControlName="email">
         <label>Phone</label>
-        <input type="text" class="form-control" #phone>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="phone">
     </div>
         <label>Enter Topics</label>
     <input
@@ -23,5 +35,9 @@
         (click)="removeTopic(topic)" 
         class="list-group-item">{{ topic.value }}</li>
     </ul>  
-    
+    <br>
+    <button 
+    class="btn btn-primary"
+    [disabled]= form.invalid
+    >Create</button>
 </form>
