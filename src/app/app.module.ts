@@ -7,12 +7,14 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { CourseListFormComponent } from './course-list-form/course-list-form.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
   declarations: [
     AppComponent,
     CourseFormComponent,
     SignupFormComponent,
-    CourseListFormComponent
+    CourseListFormComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

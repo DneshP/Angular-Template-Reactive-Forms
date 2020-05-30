@@ -7,7 +7,9 @@
     <div class="danger alert-danger"
     *ngIf="name.touched && name.invalid"
     >
-    <div *ngIf="name.errors.required" >Name is Required.</div>
+    <div 
+    class="danger alert-danger"
+    *ngIf="name.errors.required" >Name is Required.</div>
     </div>
     <div 
     class="form-group" 
